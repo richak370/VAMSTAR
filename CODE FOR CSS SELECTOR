@@ -1,0 +1,27 @@
+Language:  
+
+import java.util.* 
+public class test{ 
+public static void main(String[] args) { 
+System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe"); 
+WebDriver driver = new FirefoxDriver();
+String baseUrl = "https://prefeitura.pbh.gov.br/saude/licitacao/pregao-eletronico-151-2020";
+driver.get(baseUrl);
+WebElement l = driver.findElements(By.cssSelector("span.col-sm-6.lbl-licitacao:nth-of-type(1)>font>font:last-of-type "));
+System.out.println("Publication Date:" + l.getText());
+WebElement b = driver.findElements(By.cssSelector("span.col-sm-6.lbl-licitacao:nth-of-type(6)>font>font:last-of-type "));
+System.out.println("Bidding Date:" + b.getText());
+WebElement o = driver.findElements(By.cssSelector("p:nth-of-type(1)>font>font "));
+System.out.println("Object:" + o.getText());
+WebElement link = driver.findElements(By.cssSelector("table[data-striping="1"]>tbody>tr>td:nth-of-type(2)>div>div>div>a "));
+link.click();
+System.out.println("link:" + link.getLink());
+driver.close();
+}
+}
+       
+
+
+
+
+
